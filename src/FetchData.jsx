@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react'
 import { useEffect } from 'react'
+import Adhaar from './Adhaar'
 export default function FetchData() {
-    const[user,setUser]=useState({})
+    const[user,setUser]=useState([])
     console.log(user)
     useEffect(()=>{
         fetch('https://jsonplaceholder.typicode.com/users').
@@ -12,15 +13,9 @@ export default function FetchData() {
     },[]) //[] ->dependency array (its an optional field)
   return (
     <>
-      {
-      user.length>0&&(
-        <>
-          <h1>{user[0].length}</h1>
-          <h1>{user[1].length}</h1>
-        </>
-      )
-        
-      }
+     {
+      user.map((cur)=><Adhaar name={cur.name}/>)
+     }
     </>
   )
 }

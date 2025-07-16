@@ -15,9 +15,9 @@ function App() {
     {/* <Welcome></Welcome> */}
     {/* <Message/> */}
     {/* <Count/> */}
-    {/* <Form/> */}
+    <Form/>
     {/* <List/> */}
-    <FetchData/>
+    {/* <FetchData/> */}
     </>
   )
 }
