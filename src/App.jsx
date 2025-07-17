@@ -5,6 +5,8 @@ import Count from './Count'
 import Form from './Form'
 import List from './List'
 import FetchData from './FetchData'
+import Home from './Home'
+import { Route,Routes } from 'react-router-dom'
 // import Welcome from './Welcome'
 function App() {
   return (
@@ -15,9 +17,16 @@ function App() {
     {/* <Welcome></Welcome> */}
     {/* <Message/> */}
     {/* <Count/> */}
-    <Form/>
+    {/* <Form/> */}
     {/* <List/> */}
     {/* <FetchData/> */}
+    <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/form' element={<Form/>}/>
+        <Route path="/list" element={<List/>}/>
+        <Route path='/fetchData' element={<FetchData/>}></Route>
+        <Route path='/count' element={<Count/>}/>
+    </Routes>
     </>
   )
 }

@@ -10,13 +10,16 @@ export default function Form() {
   console.log(name)
   function submitHandler(e) {
     e.preventDefault() // prevents reloading
-
     if (name == '' || email == '' || password == '') return
     user.push({ name: name, email: email })
     alert("form submitted successfully")
     setName('')
     setEmail('')
     setPassword('')
+  }
+  function handleDelete(index){
+     let newArray=user.filter((_,i)=>i!=index);
+     setUser(newArray)
   }
   return (
     <>
@@ -38,10 +41,9 @@ export default function Form() {
       </form>
       <h1>List of Submitted Users</h1>
       <ul>
-        {user.map((cur)=>(
+        {user.map((cur,index)=>(
           <>
-            <li>{cur.name} {cur.email} <button>delete</button> </li>
-            {/* <li></li> */}
+            <li key={index}>{cur.name} {cur.email} <button onClick={()=>handleDelete(index)}>delete</button> </li>
           </>
         ))}
       </ul>
