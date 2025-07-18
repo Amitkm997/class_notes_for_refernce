@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react'
-
+import { useNavigate } from 'react-router-dom'
 export default function Form() {
+  const navigate=useNavigate();
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -12,7 +13,8 @@ export default function Form() {
     e.preventDefault() // prevents reloading
     if (name == '' || email == '' || password == '') return
     user.push({ name: name, email: email })
-    alert("form submitted successfully")
+    // alert("form submitted successfully")
+    navigate('/fetchData')
     setName('')
     setEmail('')
     setPassword('')
