@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import './Form.css'
 export default function Form() {
   const navigate=useNavigate();
   const [name, setName] = useState('')
@@ -25,7 +26,9 @@ export default function Form() {
   }
   return (
     <>
+     
       <form onSubmit={submitHandler}>
+        <h1>Register Yourself</h1>
         <input type='text'
           placeholder='Enter your name'
           value={name}
