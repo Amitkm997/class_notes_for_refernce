@@ -2,13 +2,16 @@ import express from 'express';
 import morgan from 'morgan';
 import userRoute from './routes/userRoute.js'
 import mongoose from 'mongoose';
+import dotenv from 'dotenv'
+dotenv.config()
+
 const app=express();// initizilise the express
-const PORT=5000;
+const PORT=process.env.PORT;
 
 app.use(express.json())
 app.use(morgan('dev'))
 
-mongoose.connect('mongodb+srv://amitkm997:oDckR5MO7bSWa0jR@cluster0.t96wgc7.mongodb.net/')
+mongoose.connect(process.env.MONGODB_URI)
 .then(()=>console.log("mongodb connected successfully"))
 .catch((err)=>console.log(err))
 
@@ -18,6 +21,6 @@ app.listen(PORT,()=>{
      console.log(`server running on port ${PORT}`)
 })
 
-//oDckR5MO7bSWa0jR 
-// amitkm997
-// mongodb+srv://amitkm997:oDckR5MO7bSWa0jR@cluster0.t96wgc7.mongodb.net/
+//bcrypt
+// jwt-json web token 
+//authentication / authorization
